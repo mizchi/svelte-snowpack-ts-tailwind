@@ -1,9 +1,11 @@
 <script lang="ts">
-  export let text: string;
-  const id = `box_${Math.random().toString(32).substring(2)}`;
+  export let id: string = `box_${Math.random().toString(32).substring(2)}`;
+  export let style: string = "";
 </script>
 
-<div class="text" {id}>{text}</div>
+<div class="text" {id} {style}>
+  <slot />
+</div>
 
 <style>
   .text {

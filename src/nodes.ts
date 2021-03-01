@@ -294,7 +294,7 @@ export interface RefNode extends BaseNode {
 export interface InlineComponentNode extends BaseNode {
   type: "InlineComponent";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
   expression: Node;
 }
@@ -307,28 +307,28 @@ export interface CommentNode extends BaseNode {
 export interface SlotNode extends BaseNode {
   type: "Slot";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
 }
 
 export interface WindowNode extends BaseNode {
   type: "Window";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
 }
 
 export interface HeadNode extends BaseNode {
   type: "Head";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
 }
 
 export interface TitleNode extends BaseNode {
   type: "Title";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
 }
 
@@ -349,14 +349,14 @@ export interface ActionNode extends BaseNode {
 
 export interface StyleNode extends BaseNode {
   type: "Style";
-  attributes: Node[];
+  attributes: AttributeNode[];
   children: Node[];
   content: StyleProgramNode;
 }
 
 export interface ScriptNode extends BaseNode {
   type: "Script";
-  attributes: Node[];
+  attributes: AttributeNode[];
   content: Node;
 }
 
@@ -401,7 +401,7 @@ export interface ModuleScriptNode extends BaseNode {
 export interface BodyNode extends BaseNode {
   type: "Body";
   name: string;
-  attributes: Node[];
+  attributes: AttributeNode[];
 }
 
 export interface OptionsNode extends BaseNode {

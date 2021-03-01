@@ -6,7 +6,6 @@
 <script lang="ts">
   import "./Tailwind.svelte";
   import ElementTree from "./ElementTree.svelte";
-  // import { boxBaseCode } from "../data/code";
   import type { ParsedSvelteAst } from "../lib/svelteHelpers";
   import {
     renderSvelteTemplate,
@@ -19,6 +18,7 @@
   // import { sdk } from "../data/code";
   import sdk from "../data/files.json";
   import type { Ast } from "svelte/types/compiler/interfaces";
+  import { editMode } from "./ElementTree.svelte";
 
   let editingCode = sdk["/Main.svelte"];
   console.log("editing", editingCode);
@@ -31,11 +31,13 @@
 
   let updateAst = (newAst: Ast["html"]) => {
     // debugger;
+    // debugger;
     const newParsed = produce(parsed, (d) => {
       d.html.ast.html = newAst;
     });
     parsed = newParsed;
     editingCode = renderSvelteTemplate(newParsed);
+    console.log("run preview debo");
     runPreviewDebounced(editingCode);
   };
 
@@ -74,20 +76,11 @@
       console.log("build");
       // @ts-ignore
       window.__app?.$destroy?.();
-      // eval(compiled);
-      // debugger;
-
       const encoded = btoa(unescape(encodeURIComponent(compiled)));
       await eval(`import("data:text/javascript;base64,${encoded}")`);
       const el = document.querySelector("#preview-root");
-
       // @ts-ignore
       window.__app = window.__run(el);
-
-      // setTimeout(() => {
-      //   const el = document.querySelector("#preview-root");
-      //   debugger;
-      // }, 40);
     } catch (err) {
       console.error(err);
     } finally {
@@ -119,10 +112,21 @@
 
 <div class="flex w-full h-full">
   <div class="w-80 h-full">
-    <ElementTree root={fragment} onUpdate={updateAst} />
+    <div>
+      <button on:click={() => editMode.set("prop")}>prop</button>
+      |
+      <button on:click={() => editMode.set("layout")}>layout</button>
+      ( mode: {$editMode} )
+    </div>
+    <div class="w-full h-full">
+      <ElementTree root={fragment} onUpdate={updateAst} />
+    </div>
   </div>
   <div class="flex-1 h-full">
-    <button on:click={() => runPreview(editingCode)}>run</button>
+    <button
+      class="bg-blue-400 text-white py-2 px-4 rounded"
+      on:click={() => runPreview(editingCode)}>run</button
+    >
     <div id="preview-root" />
   </div>
   <div class="w-96">
