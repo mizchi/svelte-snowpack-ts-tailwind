@@ -30,11 +30,13 @@
   $: fragment = parsed.html.ast.html as ExtendedTemplateNode;
 
   let updateAst = (newAst: Ast["html"]) => {
+    // debugger;
     const newParsed = produce(parsed, (d) => {
       d.html.ast.html = newAst;
     });
     parsed = newParsed;
     editingCode = renderSvelteTemplate(newParsed);
+    runPreviewDebounced(editingCode);
   };
 
   function onInputCode(ev: any) {

@@ -2,7 +2,7 @@
   import type { ExtendedTemplateNode, TextNode } from "../nodes";
   import FaChevronRight from "svelte-icons/fa/FaChevronRight.svelte";
   import FaChevronDown from "svelte-icons/fa/FaChevronDown.svelte";
-  import FaPlus from "svelte-icons/fa/FaPlus.svelte";
+  // import FaPlus from "svelte-icons/fa/FaPlus.svelte";
   import produce from "immer";
   export let node: ExtendedTemplateNode;
   export let defaultOpened: boolean = true;
@@ -96,7 +96,10 @@
   {:else if node.name === "Route"}
     <span>
       Page
-      <svelte:self node={node.attributes[0]} />
+      <svelte:self
+        node={node.attributes[0]}
+        onUpdate={updateAttributeHandler(0)}
+      />
     </span>
 
     {#each node.children as child, idx}
@@ -107,7 +110,7 @@
   {:else if node.name === "Text"}
     <span>- Text </span>
     <span>
-      <svelte:self node={node.attributes[0]} />
+      <svelte:self node={node.attributes[0]} onUpdate={onUpdateText} />
     </span>
   {:else if node.name === "Box"}
     {#each node.children as child, idx}

@@ -17,7 +17,7 @@ const ts_path = path.join(
   "../node_modules/typescript/lib/typescript.js"
 );
 const code = fs.readFileSync(ts_path, "utf-8");
-const rewrote = code.replace('require("perf_hooks")', "{}");
+const rewrote = code.replace(/require\(\"perf_hooks\"\)/g, "{}");
 
 fs.writeFileSync(ts_path, rewrote);
 console.log("patched", ts_path);

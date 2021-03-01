@@ -1402,7 +1402,7 @@ snowpack-plugin-replace@^1.0.4:
   resolved "https://registry.yarnpkg.com/snowpack-plugin-replace/-/snowpack-plugin-replace-1.0.4.tgz#919e85055581f1cf341dca8762fbd8952ec15e9e"
   integrity sha512-ppDrgh18XyMK19W4hLuQxVvUxHYxnrn3hMudegcC6Hg5IgeRbX7yXmV9HPfkU88NM3+IlCSiJvQxR2EY08YVNg==
 
-snowpack@^3.0.1:
+snowpack@^3.0.13:
   version "3.0.13"
   resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-3.0.13.tgz#25e6434b186d916f69b0bae6325bda4f1451c035"
   integrity sha512-USTcpfJ68rbuFvUygw+3n9qS1CC/tGsr/JNVc6FNk0ZRfGBE4OmB+Mmk5nWtdxi546GeCr/GvveJenYLen/WpA==
@@ -1523,10 +1523,10 @@ svelte-preprocess@^4.6.0, svelte-preprocess@^4.6.9:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
-svelte@^3.32.3:
-  version "3.32.3"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.32.3.tgz#db0c50c65573ecffe4e2f4924e4862d8f9feda74"
-  integrity sha512-5etu/wDwtewhnYO/631KKTjSmFrKohFLWNm1sWErVHXqGZ8eJLqrW0qivDSyYTcN8GbUqsR4LkIhftNFsjNehg==
+svelte@^3.34.0:
+  version "3.34.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.34.0.tgz#a0195a0db0305d78df87520711317b99e6fb8a26"
+  integrity sha512-xWcaQ/J4Yd5k0UWz+ef6i5RW5WP3hNpluEI2qtTTKlMOXERHpVL509O9lIw7sgEn1JjJgTOS+lnnDj99vQ3YqQ==
 
 tailwindcss@^2.0.3:
   version "2.0.3"
@@ -1571,10 +1571,10 @@ ts-node@^9.1.1:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
-typescript@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.2.tgz#1450f020618f872db0ea17317d16d8da8ddb8c4c"
-  integrity sha512-tbb+NVrLfnsJy3M59lsDgrzWIflR4d4TIUjz+heUnHZwdF7YsrMTKoRERiIvI2lvBG95dfpLxB21WZhys1bgaQ==
+typescript@4.1:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.5.tgz#123a3b214aaff3be32926f0d8f1f6e704eb89a72"
+  integrity sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
 
 uniq@^1.0.1:
   version "1.0.1"
