@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InlineComponentNode } from "../nodes";
+  import type { InlineComponentNode } from "../../nodes";
   import produce from "immer";
   import FaCircle from "svelte-icons/fa/FaCircle.svelte";
   export let node: InlineComponentNode;

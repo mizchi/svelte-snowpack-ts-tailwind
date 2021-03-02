@@ -12,7 +12,7 @@
 
 <script lang="ts">
   import ElementTreeNode from "./ElementTreeNode.svelte";
-  import type { ExtendedTemplateNode } from "../nodes";
+  import type { ExtendedTemplateNode } from "../../nodes";
   import { writable } from "svelte/store";
   import { getContext, setContext } from "svelte";
   export let root: ExtendedTemplateNode;

@@ -6,12 +6,11 @@
     Route,
     Modal,
     Flex,
-    TextBlock,
-    ButtonBlock,
+    ParagraphBlock,
+    TextButtonBlock,
     ImageBlock,
     initMemoryRouter,
   } from "./components/index";
-  // @ts-ignore
   const router = initMemoryRouter("/");
   let opened = true;
   let close = () => {
@@ -23,35 +22,32 @@
 <Router {router}>
   <Route path="/">
     <Modal {opened} on:close={close} fog={false}>
-      <Flex
-        dir="column"
-        style="width: 300px; height: 300px; background: wheat;"
-      >
-        <Flex style="height: 32px; background: #aaa">
-          <ButtonBlock
-            id="top-left"
-            text="Index"
-            on:click={() => router.push("/")}
-          />
-          <ButtonBlock
-            id="top-right"
-            text="About"
-            on:click={() => router.push("/about")}
+      <Flex direction="column" width="300px" height="300px">
+        <Flex height="32px">
+          <TextButtonBlock id="top-left" on:click={() => router.push("/")}
+            >Here</TextButtonBlock
+          >
+          <TextButtonBlock id="top-right" on:click={() => router.push("/about")}
+            >About</TextButtonBlock
+          >
+        </Flex>
+        <Flex flex="1" height="150px">
+          <ImageBlock
+            id="image"
+            height="150px"
+            src="https://i.imgur.com/nAnqC.jpg"
           />
         </Flex>
-        <Flex style="height: 150px; background: #bbb">
-          <ImageBlock id="image" src="https://i.imgur.com/nAnqC.jpg" />
-        </Flex>
-        <Flex style="flex: 1; background: #aba">
-          <Flex style="flex: 1">
-            <TextBlock id="left">XXX</TextBlock>
+        <Flex flex="1">
+          <Flex flex="1">
+            <ParagraphBlock id="left">XXX</ParagraphBlock>
           </Flex>
-          <Flex style="flex: 1; background: #dbd">
-            <TextBlock id="right">YYY</TextBlock>
+          <Flex flex="1">
+            <ParagraphBlock id="right">YYY</ParagraphBlock>
           </Flex>
         </Flex>
         <Flex style="height: 50px; background: #ccc">
-          <ButtonBlock id="bottom-button" text="Next" />
+          <TextButtonBlock id="bottom-button">WIP</TextButtonBlock>
         </Flex>
       </Flex>
     </Modal>
@@ -59,16 +55,11 @@
   <Route path="/about">
     <Modal {opened} on:close={close} fog={true}>
       <div transition:fade>
-        <Flex
-          dir="column"
-          style="width: 300px; height: 300px; background: wheat;"
-        >
-          <Flex style="flex:1; background: #999">
-            <ButtonBlock
-              id="top-left"
-              text="Back"
-              on:click={() => router.push("/")}
-            />
+        <Flex direction="column" width="300px" height="300px">
+          <Flex flex="1">
+            <TextButtonBlock id="top-left" on:click={() => router.push("/")}>
+              Back
+            </TextButtonBlock>
           </Flex>
         </Flex>
       </div>

@@ -1,21 +1,24 @@
 <script lang="ts">
-  import type { ExtendedTemplateNode, TextNode } from "../nodes";
+  import type { ExtendedTemplateNode, TextNode } from "../../nodes";
   import InlineComponentNode from "./InlineComponentNode.svelte";
   import produce from "immer";
+  import { updateChildHandler} from "../treeUtils";
 
   export let node: ExtendedTemplateNode;
   export let onUpdate: (newAst: ExtendedTemplateNode) => void;
 
-  const updateChildHandler = (idx: number) => (
-    newChild: ExtendedTemplateNode
-  ) => {
-    console.log("update index", node, idx);
-    const newNode = produce(node, (draft) => {
-      // @ts-ignore
-      draft.children[idx] = newChild;
-    });
-    onUpdate(newNode);
-  };
+  // const onUpdateChild = ()
+
+  // const updateChildHandler = (idx: number) => (
+  //   newChild: ExtendedTemplateNode
+  // ) => {
+  //   console.log("update index", node, idx);
+  //   const newNode = produce(node, (draft) => {
+  //     // @ts-ignore
+  //     draft.children[idx] = newChild;
+  //   });
+  //   onUpdate(newNode);
+  // };
 
   const updateAttributeValueHandler = (idx: number) => (
     newChild: ExtendedTemplateNode
@@ -53,14 +56,14 @@
     <div class="pl-1">
       {#each node.children as child, i}
         <div style="width: 100%">
-          <svelte:self node={child} onUpdate={updateChildHandler(i)} />
+          <svelte:self node={child} onUpdate={updateChildHandler(node, i, onUpdate)} />
         </div>
       {/each}
     </div>
   </div>
 {:else if node.type === "Element"}
   {#each node.children as child, idx}
-    <svelte:self node={child} onUpdate={updateChildHandler(idx)} />
+    <svelte:self node={child} onUpdate={updateChildHandler(node, idx, onUpdate)} />
   {/each}
 {:else if node.type === "InlineComponent"}
   <InlineComponentNode {node} {onUpdate} />

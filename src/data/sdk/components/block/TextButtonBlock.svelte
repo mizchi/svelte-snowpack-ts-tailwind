@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  export let text: string;
   export let id: string;
   export let style: string = "";
 
@@ -9,8 +8,7 @@
 
 <div {id} class="container" {style}>
   <button class="inner" on:click={() => dispatch("click")}>
-    <!-- <slot /> -->
-    {text}
+    <slot />
   </button>
 </div>
 
@@ -23,6 +21,7 @@
     align-items: center;
     font-size: 12px;
     line-height: 1.66667;
+    padding: 3px;
   }
   .inner {
     display: flex;

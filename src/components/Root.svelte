@@ -5,7 +5,7 @@
 
 <script lang="ts">
   import "./Tailwind.svelte";
-  import ElementTree from "./ElementTree.svelte";
+  import ElementTree from "./elementTree/ElementTree.svelte";
   import type { ParsedSvelteAst } from "../lib/svelteHelpers";
   import {
     renderSvelteTemplate,
@@ -18,7 +18,7 @@
   // import { sdk } from "../data/code";
   import sdk from "../data/files.json";
   import type { Ast } from "svelte/types/compiler/interfaces";
-  import { editMode } from "./ElementTree.svelte";
+  import { editMode } from "./elementTree/ElementTree.svelte";
 
   let editingCode = sdk["/Main.svelte"];
   console.log("editing", editingCode);

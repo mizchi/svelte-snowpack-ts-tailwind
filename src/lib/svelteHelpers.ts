@@ -10,13 +10,13 @@ import * as svelteCompiler from "svelte/compiler";
 import type { Ast, TemplateNode } from "svelte/types/compiler/interfaces";
 
 // import type { Ast } from "svelte/types/compiler/interfaces";
-import { format } from "prettier";
+// import { format } from "prettier";
 // @ts-ignore
 import * as sveltePrinter from "@mizchi/svelte-printer";
 
 export function printTemplate(ast: Ast): string {
   const code = sveltePrinter.printCode(ast);
-  return format(code, { parser: "svelte", plugins: [sveltePrinter] });
+  return prettier.format(code, { parser: "svelte", plugins: [sveltePrinter] });
 }
 
 export type ParsedSvelteTemplate = {

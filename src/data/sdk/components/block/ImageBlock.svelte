@@ -10,22 +10,28 @@
 </script>
 
 <div {id} class="container" {style}>
-  <img
-    class="g"
-    {src}
-    alt="image"
-    loading="lazy"
-    {width}
-    {height}
-    style="border-radius: {radius}"
-  />
+  <div class="wrapper" style="width: {width}; height: {height};">
+    <img
+      class="g"
+      {src}
+      alt="image"
+      loading="lazy"
+      {width}
+      {height}
+      style="border-radius: {radius}"
+    />
+  </div>
 </div>
 
 <style>
   .container {
     width: 100%;
     height: 100%;
-    margin: 0 auto;
-    text-align: center;
+  }
+  .wrapper {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

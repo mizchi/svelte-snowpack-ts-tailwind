@@ -189,7 +189,7 @@ export interface MustacheTagNode extends BaseNode {
 export interface AttributeNode extends BaseNode {
   type: "Attribute";
   name: string;
-  value: Node[];
+  value: Array<TextNode | MustacheTagNode>;
 }
 
 export interface IdentifierNode extends BaseNode {
